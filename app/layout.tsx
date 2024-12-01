@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
+import ReduxProvider from "@/Redux/ReduxProvider";
 
-const inter = Inter({ subsets: ["latin"] });
+export const poppins_init = Poppins({
+    subsets : ['latin'],
+    variable: '--font-poppins',
+    weight: ['100','200','300','400','500','600','700','800','900']
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`${poppins_init.className}`}>
+        <ReduxProvider>
+          {children}
+        </ReduxProvider>
+      </body>
     </html>
   );
 }
