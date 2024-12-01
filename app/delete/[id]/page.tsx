@@ -27,7 +27,7 @@ const DeletePage = ({ params: { id }}: { params:{id: string }}) => {
             <h1 className="deletePageTitle">Are you sure you want to delete this post?</h1>
             <p className="warning-text">This action is permanent and cannot be undone.</p>
             <div className="deletePageButtons">
-                <form action={deletePost} method="DELETE">
+                <form action={deletePost}>
                     <input type="hidden" name="id" value={id} />
                     <button type="submit" className="delete-button" style={{padding: "10px 15px"}}>
                         Delete Post

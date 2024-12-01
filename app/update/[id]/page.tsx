@@ -2,9 +2,10 @@ import { redirect } from "next/navigation";
 
 const updatePost = async (formData: FormData) => {
     "use server";
-    const id = formData.get('id');
-    const title = formData.get('title');
-    const body = formData.get('textArea');
+
+    const id = formData.get('id') || '';
+    const title = formData.get('title') || '';
+    const body = formData.get('textArea') || '';
     
     if (!id || !title || !body) {
         throw new Error('All fields are required.');
@@ -28,7 +29,7 @@ const UpdatePage = ({ params:{ id }}: {params:{ id : string}}) => {
     return (
         <div className="container center">
             <h1 className="form-heading">Update Post</h1>
-            <form action={updatePost} method="PUT">
+            <form action={updatePost}>
                 <input type="hidden" name="id" value={id}/>
                 <div className="form-input">
                     <label htmlFor="title">Title:</label>

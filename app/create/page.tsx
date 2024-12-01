@@ -3,8 +3,8 @@ import { redirect } from "next/navigation";
 export async function createPost(formData: FormData) {
     "use server";
 
-    const title = formData.get("title");
-    const body = formData.get("body");
+    const title = formData.get("title") || "";
+    const body = formData.get("body") || "";
 
     if (!title || !body) {
         throw new Error("Both title and body are required.");
@@ -29,7 +29,7 @@ const CreatePostPage = () => {
     return (
         <div className="container center">
             <h1 className="form-heading">Create a New Post</h1>
-            <form action={createPost} method="POST">
+            <form action={createPost}>
                 <div className="form-input">
                     <label htmlFor="title">Title:</label>
                     <input placeholder="enter the title" type="text" id="title" name="title" required />
