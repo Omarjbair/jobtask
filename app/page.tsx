@@ -1,4 +1,5 @@
 import Login from "@/components/Login";
+import Navbar from "@/components/navbar";
 import Table from "@/components/Table";
 import Link from 'next/link';
 
@@ -20,14 +21,8 @@ export default async function Home() {
 
   return (
     <main>
+      <Navbar/>
       <div className="container">
-        <Link style={{width: "fit-content"}} className="update-button" href={'/websocket'}>
-            websocket
-        </Link>
-        <Link style={{width: "fit-content"}} className="update-button" href={'/redux'}>
-            Redux
-        </Link>
-        <Login/>
         <h1 className="heading">Welcome to blog posts</h1>
         <h2 className="sub-heading">Create, Read, Update, Delete Any post</h2>
         <button className="create-button">
